@@ -16,6 +16,7 @@ A tool was created for the nonprofit foundation, Alphabet Soup, to help with opt
     - SPECIAL_CONSIDERATIONS—Special considerations for application
     - ASK_AMT—Funding amount requested
     - IS_SUCCESSFUL—Was the money used effectively
+
 ### Results 
     1. Data Preprocessing
         - Data was checked for null and duplicated values
@@ -33,8 +34,22 @@ A tool was created for the nonprofit foundation, Alphabet Soup, to help with opt
             - INCOME_AMT
             - SPECIAL_CONSIDERATIONS
             - ASK_AMT
+
     2. Compiling, Training, and Evaluating the Model
-    The first model was build with the following parameters
+    The first model was build with the following parameters (little computation):
+        - 2 hidden layers with 80, 30 neurons split (the input (node) feature was 43, 80 was chosen as the first layer as it is almost double the input_feature). With an hidden layer activation function of relu as this our go to for first model.
+        - Output node is 1 as it was binary classifier model with only one output: was the funding application succesfull yes or no. And an output layer activation of sigmoid as the model output is binary classification between 0 and 1.
+        - A third hidden layer was added because model prediction turned out to be less then 75%.
+        
+    3. Optimize the model
+    Went forth and used an automated model optimizer to get most accurate model possible by creating method that creates a 'keras' Sequential model using the 'keras-tuner library' with hyperparameters options.
+    - The best model from the keras tuner method achieved 73% prediction accuracy using a sigmoid activation function with input node of 46, 6 hidden layers at a 51, 81, 71, 6, 41, 91 neurons split and 100 training epochs. 
+
+### Summary 
+The final automatically optimized neural network trained model from the keras tuner method achieved 80% prediction accuracy with a 0.45 loss, using a sigmoid activation function with input node of 76; 5 hidden layers at a 16, 21, 26, 11, 21, neurons split and 50 training epochs. Performing better than the non automized model. Keeping the Name column was crucial in achieving and and going beyond the target. This shows the importance of the shape of your datasets before you preprocess it.
+
+---
+## Instructions
 # Step 1: Preprocess the Data
 - Using your knowledge of Pandas and scikit-learn’s StandardScaler(), you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
 
