@@ -18,8 +18,8 @@ A tool was created for the nonprofit foundation, Alphabet Soup, to help with opt
     - IS_SUCCESSFUL—Was the money used effectively
 
 ### Results 
-    1. Data Preprocessing
-        - Data was checked for null and duplicated values
+1. Data Preprocessing
+    - Data was checked for null and duplicated values
         - *EIN* and *NAME* -- identification columns were removed from the input data because they are neither targets nor features
         - A cutoff point was created to bin "rare" categorical variables together in a new value, other 'Other' for both 'CLASSIFICATION' and 'APPLICATION_TYPE'
         - Categorical data was converted to numeric with pd.get_dummies and a split of the preprocessed data into features and target arrays was made. It was then split into training and testing datasets
@@ -35,13 +35,13 @@ A tool was created for the nonprofit foundation, Alphabet Soup, to help with opt
             - SPECIAL_CONSIDERATIONS
             - ASK_AMT
 
-    2. Compiling, Training, and Evaluating the Model
+2. Compiling, Training, and Evaluating the Model
     The first model was build with the following parameters (little computation):
-        - 2 hidden layers with 80, 30 neurons split (the input (node) feature was 43, 80 was chosen as the first layer as it is almost double the input_feature). With an hidden layer activation function of relu as this our go to for first model.
-        - Output node is 1 as it was binary classifier model with only one output: was the funding application succesfull yes or no. And an output layer activation of sigmoid as the model output is binary classification between 0 and 1.
-        - A third hidden layer was added because model prediction turned out to be less then 75%.
-        
-    3. Optimize the model
+    - 2 hidden layers with 80, 30 neurons split (the input (node) feature was 43, 80 was chosen as the first layer as it is almost double the input_feature). With an hidden layer activation function of relu as this our go to for first model.
+    - Output node is 1 as it was binary classifier model with only one output: was the funding application succesfull yes or no. And an output layer activation of sigmoid as the model output is binary classification between 0 and 1.
+    - A third hidden layer was added because model prediction turned out to be less then 75%.
+
+3. Optimize the model
     Went forth and used an automated model optimizer to get most accurate model possible by creating method that creates a 'keras' Sequential model using the 'keras-tuner library' with hyperparameters options.
     - The best model from the keras tuner method achieved 73% prediction accuracy using a sigmoid activation function with input node of 46, 6 hidden layers at a 51, 81, 71, 6, 41, 91 neurons split and 100 training epochs. 
 
