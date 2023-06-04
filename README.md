@@ -1,7 +1,40 @@
 # Deep Learning Challenge
 - Module 21 Challenge
 
-## Instructions
+## Neural Network Model Report
+### Overview
+---
+A tool was created for the nonprofit foundation, Alphabet Soup, to help with optimization of selecting clients for funding (for those with the best chance of success in their ventures). With my knowledge of machine learning and neural networks, I have utilized features in the provided data set to create a classifier which can predict whether applicants can be successful if they were funded by Alphabet Soup. A target was set to 75% accuracy for the model. A CSV was retrieved from the nonprofit which contained over 34,000 organizations that have received funding from Alphabet Soup over the years. The dataset included the following columns: 
+    - EIN and NAME—Identification columns
+    - APPLICATION_TYPE—Alphabet Soup application type
+    - AFFILIATION—Affiliated sector of industry
+    - CLASSIFICATION—Government organization classification
+    - USE_CASE—Use case for funding
+    - ORGANIZATION—Organization type
+    - STATUS—Active status
+    - INCOME_AMT—Income classification
+    - SPECIAL_CONSIDERATIONS—Special considerations for application
+    - ASK_AMT—Funding amount requested
+    - IS_SUCCESSFUL—Was the money used effectively
+### Results 
+    1. Data Preprocessing
+        - Data was checked for null and duplicated values
+        - *EIN* and *NAME* -- identification columns were removed from the input data because they are neither targets nor features
+        - A cutoff point was created to bin "rare" categorical variables together in a new value, other 'Other' for both 'CLASSIFICATION' and 'APPLICATION_TYPE'
+        - Categorical data was converted to numeric with pd.get_dummies and a split of the preprocessed data into features and target arrays was made. It was then split into training and testing datasets
+        - Target variable for the model: 'IS_SUCCESSFUL'
+        - Feature variables for the model:
+            - APPLICATION_TYPE
+            - AFFILIATION
+            - CLASSIFICATION
+            - USE_CASE
+            - ORGANIZATION
+            - STATUS
+            - INCOME_AMT
+            - SPECIAL_CONSIDERATIONS
+            - ASK_AMT
+    2. Compiling, Training, and Evaluating the Model
+    The first model was build with the following parameters
 # Step 1: Preprocess the Data
 - Using your knowledge of Pandas and scikit-learn’s StandardScaler(), you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
 
